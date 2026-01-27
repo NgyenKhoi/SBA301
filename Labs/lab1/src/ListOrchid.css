@@ -1,0 +1,101 @@
+/* Reset và full width layout */
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    overflow-x: hidden;
+}
+
+#root {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Orchid card animations */
+.orchid-card {
+    transition: all 0.3s ease !important;
+}
+
+.orchid-card:hover {
+    transform: translateY(-10px) !important;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15) !important;
+}
+
+.orchid-image {
+    transition: transform 0.3s ease !important;
+}
+
+.orchid-card:hover .orchid-image {
+    transform: scale(1.05) !important;
+}
+
+.details-btn {
+    transition: all 0.3s ease !important;
+}
+
+.details-btn:hover {
+    transform: translateY(-2px) !important;
+}
+
+/* Container full width override */
+.container-fluid {
+    max-width: none !important;
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .container-fluid {
+        padding-left: 1.5rem !important;
+        padding-right: 1.5rem !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .container-fluid {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+}
+
+/* Custom scrollbar for modal */
+.modal-body::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-body::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    border-radius: 10px;
+}
+
+.modal-body::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #764ba2, #667eea);
+}
+
+/* Override Bootstrap container constraints */
+.container-fluid {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+/* Ensure cards are properly spaced */
+.row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+.col-xl-3, .col-lg-4, .col-md-6, .col-sm-12 {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+}

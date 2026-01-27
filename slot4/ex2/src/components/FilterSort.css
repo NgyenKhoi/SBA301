@@ -1,0 +1,77 @@
+.filter-sort-container {
+  background: linear-gradient(135deg, var(--white) 0%, var(--background-color) 100%);
+  border-radius: 15px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 6px rgba(33, 60, 81, 0.1);
+  border: 2px solid var(--accent-color);
+}
+
+.form-group {
+  margin-bottom: 0;
+}
+
+.filter-label {
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.filter-select,
+.sort-select,
+.search-input {
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  padding: 0.75rem;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  background-color: var(--white);
+  color: var(--text-dark);
+}
+
+.filter-select:focus,
+.sort-select:focus,
+.search-input:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 0.2rem rgba(221, 174, 211, 0.25);
+  background-color: var(--white);
+}
+
+.search-input::placeholder {
+  color: var(--secondary-color);
+  font-style: italic;
+}
+
+/* Input Group Styling */
+.input-group-text {
+  background-color: var(--primary-color);
+  color: var(--white);
+  border: 2px solid var(--primary-color);
+  border-right: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .filter-sort-container {
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .filter-label {
+    font-size: 0.85rem;
+  }
+  
+  .filter-select,
+  .sort-select,
+  .search-input {
+    padding: 0.6rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .filter-sort-container {
+    padding: 0.75rem;
+  }
+}

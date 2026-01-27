@@ -1,0 +1,468 @@
+:root {
+  /* Color Palette */
+  --primary-color: #213C51;    /* Dark Blue */
+  --secondary-color: #6594B1;  /* Light Blue */
+  --accent-color: #DDAED3;     /* Pink */
+  --background-color: #EEEEEE; /* Light Gray */
+  
+  /* Additional colors for better UX */
+  --white: #ffffff;
+  --text-dark: #213C51;
+  --text-light: #ffffff;
+  --border-color: #6594B1;
+  --hover-color: #1a2f3f;
+  --success-color: #28a745;
+  --danger-color: #dc3545;
+  --warning-color: #ffc107;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background-color);
+  color: var(--text-dark);
+}
+
+/* Login Container Styles */
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  padding: 1rem;
+}
+
+.login-card {
+  background: var(--white);
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(33, 60, 81, 0.25);
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 500px; /* Increased from 400px */
+  margin: 0 auto;
+  border: 3px solid var(--accent-color);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Add decorative background to login card */
+.login-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 10% 10%, rgba(221, 174, 211, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 90% 90%, rgba(101, 148, 177, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.login-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.login-title {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+  font-weight: 700;
+  font-size: 2rem;
+  text-shadow: 0 2px 4px rgba(33, 60, 81, 0.1);
+  position: relative;
+}
+
+.login-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(135deg, var(--accent-color) 0%, var(--secondary-color) 100%);
+  border-radius: 2px;
+}
+
+/* Button Styles */
+.btn-login {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  border: none;
+  border-radius: 12px;
+  padding: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  width: 100%;
+  color: var(--white);
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(33, 60, 81, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-login::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn-login:hover::before {
+  left: 100%;
+}
+
+.btn-login:hover {
+  transform: translateY(-3px);
+  background: linear-gradient(135deg, var(--hover-color) 0%, #5a8399 100%);
+  color: var(--white);
+  box-shadow: 0 8px 25px rgba(33, 60, 81, 0.4);
+}
+
+.btn-cancel {
+  background: linear-gradient(135deg, var(--accent-color) 0%, #d19bc7 100%);
+  border: none;
+  border-radius: 12px;
+  padding: 14px;
+  font-weight: 600;
+  width: 100%;
+  color: var(--primary-color);
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(221, 174, 211, 0.3);
+  transition: all 0.3s ease;
+}
+
+.btn-cancel:hover {
+  background: linear-gradient(135deg, #d19bc7 0%, #c589b8 100%);
+  color: var(--primary-color);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(221, 174, 211, 0.4);
+}
+
+/* Form Styles */
+.form-control {
+  border-radius: 12px;
+  border: 2px solid var(--border-color);
+  padding: 14px 16px;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  background-color: var(--white);
+  box-shadow: 0 2px 8px rgba(33, 60, 81, 0.05);
+}
+
+.form-control:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 0.25rem rgba(221, 174, 211, 0.25), 0 4px 12px rgba(33, 60, 81, 0.1);
+  transform: translateY(-1px);
+}
+
+.form-control::placeholder {
+  color: var(--secondary-color);
+  font-style: italic;
+}
+
+/* Form Labels */
+.form-label {
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Alert Styles */
+.alert-danger {
+  border-radius: 8px;
+  border: 1px solid var(--danger-color);
+  background: rgba(220, 53, 69, 0.1);
+  color: var(--danger-color);
+}
+
+/* Custom Bootstrap overrides */
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+  background-color: var(--hover-color);
+  border-color: var(--hover-color);
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+  color: var(--white);
+}
+
+.btn-secondary:hover {
+  background-color: #5a8399;
+  border-color: #5a8399;
+}
+
+.navbar-dark {
+  background-color: var(--primary-color) !important;
+}
+
+.card {
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 8px rgba(33, 60, 81, 0.1);
+  background-color: var(--white);
+}
+
+.card-header {
+  background-color: var(--secondary-color);
+  color: var(--white);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.modal-header {
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+
+.modal-content {
+  border: 2px solid var(--accent-color);
+}
+
+.modal-footer .btn-primary {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.modal-footer .btn-primary:hover {
+  background-color: #d19bc7;
+  border-color: #d19bc7;
+  color: var(--primary-color);
+}
+
+/* Responsive Design for Login */
+@media (max-width: 768px) {
+  .login-container {
+    padding: 0.5rem;
+  }
+  
+  .login-card {
+    padding: 2rem;
+    max-width: 90%;
+    margin: 0;
+    border-radius: 15px;
+  }
+  
+  .login-title {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .login-container {
+    padding: 0.25rem;
+    align-items: flex-start;
+    padding-top: 2rem;
+  }
+  
+  .login-card {
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 12px 30px rgba(33, 60, 81, 0.2);
+    max-width: 95%;
+  }
+  
+  .login-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .form-control {
+    padding: 12px 14px;
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+  
+  .btn-login,
+  .btn-cancel {
+    padding: 12px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .login-container {
+    padding: 0.125rem;
+  }
+  
+  .login-card {
+    padding: 1rem;
+    margin: 0.25rem;
+    max-width: 98%;
+  }
+  
+  .login-title {
+    font-size: 1.25rem;
+  }
+}
+
+/* Demo credentials card styling */
+.demo-credentials-card {
+  background: linear-gradient(135deg, rgba(221, 174, 211, 0.1) 0%, rgba(101, 148, 177, 0.1) 100%);
+  border: 2px solid rgba(221, 174, 211, 0.3);
+  border-radius: 12px;
+  padding: 1rem;
+  margin-top: 1.5rem;
+  text-align: center;
+  backdrop-filter: blur(10px);
+}
+
+.demo-credentials-card small {
+  color: var(--primary-color);
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.demo-credentials-card strong {
+  color: #000000; /* Changed to black */
+  font-weight: 700;
+}
+/* Custom Error Alert Styles */
+.custom-error-alert {
+  background: linear-gradient(135deg, rgba(220, 53, 69, 0.1) 0%, rgba(220, 53, 69, 0.05) 100%);
+  border: 2px solid #dc3545;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  position: relative;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(220, 53, 69, 0.2);
+  animation: errorSlideIn 0.3s ease-out;
+}
+
+@keyframes errorSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.error-icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  box-shadow: 0 2px 8px rgba(220, 53, 69, 0.3);
+}
+
+.error-icon span {
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3));
+}
+
+.error-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.error-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #721c24;
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.error-message {
+  font-size: 0.9rem;
+  color: #721c24;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+.error-close-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #721c24;
+  cursor: pointer;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.error-close-btn:hover {
+  background: rgba(220, 53, 69, 0.1);
+  color: #dc3545;
+  transform: scale(1.1);
+}
+
+.error-close-btn:active {
+  transform: scale(0.95);
+}
+
+/* Enhanced Alert Styles for different types */
+.alert-danger {
+  display: none; /* Hide default Bootstrap alerts */
+}
+
+/* Custom validation error styling */
+.form-control.is-invalid {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.15);
+  background-image: none;
+}
+
+.invalid-feedback {
+  display: block;
+  width: 100%;
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: #dc3545;
+  font-weight: 600;
+  background: rgba(220, 53, 69, 0.1);
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  border-left: 3px solid #dc3545;
+}
+
+/* Loading state improvements */
+.spinner-border-sm {
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.2));
+}
